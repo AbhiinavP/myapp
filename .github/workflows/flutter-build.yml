@@ -16,25 +16,16 @@ jobs:
         with:
           flutter-version: '3.38.9'
 
-      - name: Go to Flutter project
-        run: cd myapp
-
       - name: Flutter doctor
-        run: |
-          cd myapp
-          flutter doctor -v
+        run: flutter doctor -v
 
       - name: Get dependencies
-        run: |
-          cd myapp
-          flutter pub get
+        run: flutter pub get
 
       - name: Build APK
-        run: |
-          cd myapp
-          flutter build apk --release
+        run: flutter build apk --release
 
       - uses: actions/upload-artifact@v4
         with:
           name: app-release
-          path: myapp/build/app/outputs/flutter-apk/app-release.apk
+          path: build/app/outputs/flutter-apk/app-release.apk
