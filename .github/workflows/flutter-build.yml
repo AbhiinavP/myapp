@@ -14,10 +14,12 @@ jobs:
 
       - uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.19.6' # pin a stable version
+          flutter-version: '3.13.0'
 
       - run: flutter doctor -v
+
       - run: flutter pub get
+
       - run: flutter build apk --release --no-shrink
 
       - uses: actions/upload-artifact@v4
